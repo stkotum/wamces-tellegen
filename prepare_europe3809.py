@@ -32,41 +32,27 @@ BASE_MVA = 100.0
 ATTRIBUTION = """\
 European 3809-bus example case for tellegen.
 
-Derived from two datasets. Both are licensed under CC BY 4.0
-(https://creativecommons.org/licenses/by/4.0/).
+Sources, both CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/):
+- WAMCES by R. Musca, https://doi.org/10.5281/zenodo.18721887.
+  Operating point, buses, lines and machine ratings.
+  Paper: R. Musca, M. G. Ippolito, E. Riva Sanseverino, Electricity 7(2): 28,
+  2026, https://doi.org/10.3390/electricity7020028.
+- PanTaGruEl by L. Pagnier and P. Jacquod, https://doi.org/10.5281/zenodo.2642175.
+  Line ratings, generator costs, bus names and coordinates.
+  Papers: https://doi.org/10.1371/journal.pone.0213550 and
+  https://doi.org/10.1126/sciadv.aaw8359.
+  Topology from the GridKit extract of the ENTSO-E map by B. Wiegmans,
+  https://doi.org/10.5281/zenodo.55853.
 
-1. R. Musca, "WAMCES - Wide-Area Monitoring and Control of the European power
-   System". Zenodo record 18721887, https://doi.org/10.5281/zenodo.18721887.
-   Companion paper: R. Musca, M. G. Ippolito, E. Riva Sanseverino,
-   Electricity 7(2): 28, 2026, https://doi.org/10.3390/electricity7020028.
-   Used: buses, lines, machine ratings and the stored power flow solution
-   (powerflow_sol.mat).
-2. L. Pagnier, P. Jacquod, "PanTaGruEl - a pan-European transmission grid and
-   electricity generation model". Zenodo record 2642175,
-   https://doi.org/10.5281/zenodo.2642175. Its authors ask for two citations:
-   L. Pagnier, P. Jacquod, PLOS ONE 14(3): e0213550, 2019,
-   https://doi.org/10.1371/journal.pone.0213550.
-   M. Tyloo, L. Pagnier, P. Jacquod, Science Advances 5(11): eaaw8359, 2019,
-   https://doi.org/10.1126/sciadv.aaw8359.
-   Used: line ratings, generator costs, bus names and coordinates.
-   PanTaGruEl builds on the GridKit extract of the ENTSO-E map by B. Wiegmans,
-   https://doi.org/10.5281/zenodo.55853.
+Adjustments (https://github.com/stkotum/wamces-tellegen):
+- Bus {ref} is the only reference bus. The other WAMCES slack buses are PV.
+- Generator ratings rise to the solved apparent power over 0.8 where needed,
+  as in WAMCES.
+- Pmax and the Q limits follow the machine rating. Pmin is 0.
+- The bus area holds a country number. The case header lists them.
 
-Changes made by prepare_europe3809.py
-(https://github.com/stkotum/wamces-tellegen):
-- Bus {ref} is the only reference bus. The other four WAMCES slack buses are
-  PV buses at their solved output.
-- A generator rating rises to the solved apparent power divided by 0.8 where
-  that exceeds the stored rating. wamces_script.m does the same.
-- Pmax and the Q limits come from the machine rating. Pmin is 0.
-- The bus area field holds a country number. The case file header lists them.
-- Line ratings, costs, names and coordinates are joined from PanTaGruEl by row
-  order. The script checks that both records list the same buses, branches
-  and generators in the same order.
-
-This is a research test grid. It is not a validated model of the real
-European grid. The creators of both records and ENTSO-E have not reviewed or
-endorsed this derivative.
+A research test grid, not a validated model of the European grid. Not endorsed
+by the dataset creators or ENTSO-E.
 """.format(ref=REFERENCE_BUS)
 
 
