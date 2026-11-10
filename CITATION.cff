@@ -1,0 +1,100 @@
+cff-version: 1.2.0
+title: "WAMCES for tellegen"
+message: >-
+  This repository converts two open datasets. If you use the case, please cite the
+  article under preferred-citation and the records under references.
+type: software
+authors:
+  - family-names: Kohlhaas
+    given-names: Stephan
+    email: stephan.kohlhaas@tum.de
+    affiliation: "Technical University of Munich"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/stkotum/wamces-tellegen"
+abstract: >-
+  A converter that builds a MATPOWER case of the continental European transmission
+  grid for tellegen. It joins the PanTaGruEl network with the WAMCES AC operating
+  point. The case has 3809 buses with coordinates. tellegen reproduces the stored
+  WAMCES power flow from a flat start to 1e-13.
+keywords:
+  - power systems
+  - power flow
+  - optimal power flow
+  - test case
+  - continental Europe
+
+preferred-citation:
+  type: article
+  title: "Dynamic Model of the European Power System for Wide-Area Monitoring and Control Applications"
+  authors:
+    - family-names: Musca
+      given-names: Rossano
+    - family-names: Ippolito
+      given-names: Mariano Giuseppe
+    - family-names: Riva Sanseverino
+      given-names: Eleonora
+  journal: Electricity
+  volume: 7
+  issue: 2
+  start: 28
+  year: 2026
+  doi: 10.3390/electricity7020028
+
+references:
+  - type: software
+    title: "WAMCES - Wide-Area Monitoring and Control of the European power System"
+    authors:
+      - family-names: Musca
+        given-names: Rossano
+    year: 2026
+    version: "1"
+    doi: 10.5281/zenodo.18721887
+    license: CC-BY-4.0
+  - type: dataset
+    title: "PanTaGruEl - a pan-European transmission grid and electricity generation model"
+    authors:
+      - family-names: Pagnier
+        given-names: Laurent
+      - family-names: Jacquod
+        given-names: Philippe
+    year: 2019
+    version: "0.1"
+    doi: 10.5281/zenodo.2642175
+    license: CC-BY-4.0
+  - type: article
+    title: "Inertia location and slow network modes determine disturbance propagation in large-scale power grids"
+    authors:
+      - family-names: Pagnier
+        given-names: Laurent
+      - family-names: Jacquod
+        given-names: Philippe
+    journal: "PLOS ONE"
+    volume: 14
+    issue: 3
+    start: e0213550
+    year: 2019
+    doi: 10.1371/journal.pone.0213550
+  - type: article
+    title: "The key player problem in complex oscillator networks and electric power grids: Resistance centralities identify local vulnerabilities"
+    authors:
+      - family-names: Tyloo
+        given-names: Melvyn
+      - family-names: Pagnier
+        given-names: Laurent
+      - family-names: Jacquod
+        given-names: Philippe
+    journal: "Science Advances"
+    volume: 5
+    issue: 11
+    start: eaaw8359
+    year: 2019
+    doi: 10.1126/sciadv.aaw8359
+  - type: dataset
+    title: "GridKit extract of ENTSO-E interactive map"
+    authors:
+      - family-names: Wiegmans
+        given-names: Bart
+    year: 2016
+    doi: 10.5281/zenodo.55853
+    license: CC-BY-4.0

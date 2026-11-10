@@ -1,0 +1,19 @@
+name: check
+
+on: [push, pull_request]
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install scipy tellegen
+      - run: |
+          mkdir sources
+          curl -fsSL -o sources/wamces_model.zip https://zenodo.org/api/records/18721887/files/wamces_model.zip/content
+          curl -fsSL -o sources/raw_csv_data.zip https://zenodo.org/api/records/18721887/files/raw_csv_data.zip/content
+          curl -fsSL -o sources/pantagruel.zip https://zenodo.org/api/records/2642175/files/pantagruel.zip/content
+      - run: python prepare_europe3809.py sources out
